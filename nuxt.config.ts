@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({yarn
+export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [
     "boosted/dist/css/boosted.min.css"
@@ -8,4 +8,11 @@ export default defineNuxtConfig({yarn
   plugins: [
     { src: "plugins/boosted.plugins.ts", mode:'client'}
   ],
+  runtimeConfig: { 
+    public:{
+      PATH_API: process.env.PATH_API,
+    },
+    NAME: process.env.NAME
+  }
+
 })

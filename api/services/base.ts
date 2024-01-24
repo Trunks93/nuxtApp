@@ -2,8 +2,12 @@ export class base {
 
   protected mainPath;
 
+  protected runtimeConfig ;
+
   constructor(){
-    this.mainPath = 'https://fakestoreapi.com';
+    this.runtimeConfig= useRuntimeConfig();
+
+    this.mainPath = this.runtimeConfig.public.PATH_API;
   }
 
   async get(url,headers): any[]{
