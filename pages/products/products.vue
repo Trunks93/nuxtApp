@@ -13,10 +13,10 @@
     </div>
 </template>
 <script lang="ts" setup>
+
 const route = useRoute();
 
-
-let { data: products } = await useFetch('https://fakestoreapi.com/products');
+ let { data: products } = await useFetch('/api/products/allProducts');
 
 
 </script>

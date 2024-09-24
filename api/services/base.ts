@@ -4,11 +4,11 @@ export class base {
 
   protected runtimeConfig ;
 
-  constructor(){
-    this.runtimeConfig= useRuntimeConfig();
-
-    this.mainPath = this.runtimeConfig.public.PATH_API;
+  constructor(baseUrl?:string){
+      this.runtimeConfig= useRuntimeConfig();
+      this.mainPath = this.runtimeConfig.public.PATH_API;
   }
+
 
   async get(url,headers): any[]{
     const { data: items } = await useFetch(`${this.mainPath}/${url}`);

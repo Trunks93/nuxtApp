@@ -32,10 +32,16 @@
 import {useCartStore} from '@/stores/useCartStore'
 
 let route = useRoute();
-const { data: currentProduct } = await useFetch(`https://fakestoreapi.com/products/${route.params.product}`)
-
-
 const { getComplementary } = useCategoriesTools();
+//  const localService = new local();
+// const data = await localService.post('api/products/singleProduct',{id:2});
+// console.log('DATA',data);
+const {data:currentProduct} = await useFetch(`/api/products/singleProduct`,{
+    method:'post',
+    body:route.params.product
+})
+
+//const { data: currentProduct } = await useFetch(`https://fakestoreapi.com/products/${route.params.product}`)
 
 const complementCategory = getComplementary(currentProduct.value.category);
 
@@ -43,12 +49,6 @@ const { data: products } = await useFetch(`https://fakestoreapi.com/products/cat
 
 
 const cart = useCartStore();
-
-
-//console.log('ok',product.category)
-
-
-//console.log(products)
 
 
 </script>
